@@ -1,582 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagaskoro Saputro - Software Engineer & AI Researcher</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bagaskoro Saputro | Software Engineer</title>
+    <meta name="description" content="Portfolio of Bagaskoro Saputro, software engineer and AI researcher focused on intelligent systems, full-stack development, and product innovation." />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --deep-space-charcoal: #121214;
             --liquid-silver: #E2E8F0;
             --anodized-champagne: #D4AF37;
             --frosted-gold: #F3E5AB;
             --slate-core: #2A2E35;
+            --slate-soft: #17191d;
+            --soft-panel: rgba(42, 46, 53, 0.72);
+            --soft-line: rgba(212, 175, 55, 0.25);
+            --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.42);
+            --shadow-gold: 0 14px 30px rgba(212, 175, 55, 0.18);
         }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--liquid-silver);
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             background: var(--deep-space-charcoal);
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--slate-core) 0%, var(--deep-space-charcoal) 100%);
             color: var(--liquid-silver);
-            padding: 5rem 2rem;
-            text-align: center;
-            border-bottom: 2px solid var(--anodized-champagne);
-            position: relative;
-            overflow: hidden;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        header > * {
-            position: relative;
-            z-index: 1;
-        }
+        a { text-decoration: none; }
 
         .container {
-            max-width: 1200px;
+            width: min(1180px, calc(100% - 32px));
             margin: 0 auto;
-            padding: 0 2rem;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            background: rgba(18, 18, 20, 0.76);
+            border-bottom: 1px solid var(--soft-line);
+        }
+
+        .topbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 72px;
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--anodized-champagne);
+            font-size: 0.8rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--liquid-silver);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--frosted-gold);
+            opacity: 1;
+        }
+
+        .hero {
+            padding: 86px 0 56px;
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 36%),
+                        linear-gradient(180deg, rgba(42,46,53,0.2), rgba(18,18,20,0));
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--frosted-gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px solid var(--soft-line);
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.05);
         }
 
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: var(--anodized-champagne);
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--frosted-gold);
-            margin-bottom: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .bio {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 1.5rem auto;
-            line-height: 1.8;
+            font-size: clamp(2.8rem, 5vw, 5.2rem);
+            line-height: 0.96;
+            letter-spacing: -0.065em;
+            margin: 0 0 20px;
             color: var(--liquid-silver);
-            font-weight: 300;
         }
 
-        .contact-links {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
+        h1 .gold {
             color: var(--anodized-champagne);
-            text-decoration: none;
-            padding: 0.8rem 2rem;
-            border: 2px solid var(--anodized-champagne);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            background: transparent;
-            letter-spacing: 0.5px;
         }
 
-        .contact-links a:hover {
+        .lead {
+            max-width: 720px;
+            color: rgba(226, 232, 240, 0.8);
+            font-size: 1.12rem;
+            margin: 0 0 28px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 22px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 1px solid var(--anodized-champagne);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
             background: var(--anodized-champagne);
             color: var(--deep-space-charcoal);
-            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+            box-shadow: var(--shadow-gold);
         }
 
-        main {
-            background: var(--deep-space-charcoal);
-            margin: 4rem auto;
-            border-radius: 3px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-            border: 1px solid var(--slate-core);
+        .btn-secondary {
+            background: transparent;
+            color: var(--liquid-silver);
+            border-color: rgba(226, 232, 240, 0.25);
         }
 
-        section {
-            padding: 4rem 2rem;
-            border-bottom: 1px solid var(--slate-core);
+        .facts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            color: rgba(226, 232, 240, 0.8);
         }
 
-        section:last-child {
-            border-bottom: none;
+        .fact {
+            min-width: 120px;
         }
 
-        h2 {
+        .fact .value {
+            display: block;
             color: var(--anodized-champagne);
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            line-height: 1;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .fact .label {
+            color: rgba(226, 232, 240, 0.72);
+            font-size: 0.76rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .profile-panel {
+            background: linear-gradient(180deg, rgba(42,46,53,0.9), rgba(23,25,29,0.85));
+            border: 1px solid var(--soft-line);
+            border-radius: 24px;
+            padding: 22px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .profile-badge {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: var(--anodized-champagne);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.8);
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .profile-header {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        h2::before {
-            content: '';
-            width: 3px;
-            height: 2.2rem;
-            background: var(--anodized-champagne);
-            border-radius: 1px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .about-card {
-            padding: 2rem;
-            background: rgba(42, 46, 53, 0.4);
-            border: 1px solid var(--slate-core);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--anodized-champagne);
-            border-radius: 3px 3px 0 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .about-card:hover {
-            background: rgba(42, 46, 53, 0.7);
-            border-color: var(--anodized-champagne);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-        }
-
-        .about-card:hover::before {
-            opacity: 1;
-        }
-
-        .about-card h3 {
-            color: var(--frosted-gold);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .about-card p {
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--soft-line);
             color: var(--liquid-silver);
-            line-height: 1.7;
-            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .skill-tag {
-            background: transparent;
-            color: var(--anodized-champagne);
-            padding: 0.7rem 1.4rem;
-            border-radius: 3px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid var(--anodized-champagne);
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .skill-tag:hover {
-            background: var(--anodized-champagne);
-            color: var(--deep-space-charcoal);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            border: 1px solid var(--slate-core);
-            border-radius: 3px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            background: rgba(42, 46, 53, 0.3);
+        .avatar-wrap {
+            width: 100%;
+            aspect-ratio: 1/1.05;
+            border-radius: 18px;
+            background: linear-gradient(160deg, rgba(212,175,55,0.18), rgba(42,46,53,0.65));
+            border: 1px solid var(--soft-line);
             position: relative;
             overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--anodized-champagne), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
-            border-color: var(--anodized-champagne);
-            background: rgba(42, 46, 53, 0.6);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-card h3 {
-            color: var(--frosted-gold);
-            margin-bottom: 0.8rem;
-            font-size: 1.15rem;
-            font-weight: 700;
-        }
-
-        .project-card p {
-            color: var(--liquid-silver);
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        .project-links {
             display: flex;
-            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-wrap::before {
+            content: "BS";
+            font-size: clamp(4rem, 7vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.08em;
+            color: var(--frosted-gold);
+            opacity: 0.9;
+        }
+
+        .mono-box {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid var(--soft-line);
+            background: rgba(18,18,20,0.52);
+            font-family: "Consolas", "SFMono-Regular", monospace;
+            color: var(--frosted-gold);
+            font-size: 0.78rem;
+            line-height: 1.8;
+        }
+
+        .section {
+            padding: 36px 0 18px;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: clamp(2rem, 3vw, 3rem);
+            letter-spacing: -0.06em;
+            color: var(--liquid-silver);
+        }
+
+        .section-head span {
+            color: var(--anodized-champagne);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--soft-panel);
+            border: 1px solid var(--soft-line);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-copy {
+            color: rgba(226, 232, 240, 0.8);
+            font-size: 1.05rem;
+        }
+
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .chip {
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.06);
+            color: var(--frosted-gold);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .project {
+            background: var(--soft-panel);
+            border: 1px solid var(--soft-line);
+            border-radius: 24px;
+            padding: 24px;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-2px);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .project-type {
+            color: var(--frosted-gold);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+        }
+
+        .project h3 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+            letter-spacing: -0.04em;
+            color: var(--liquid-silver);
+        }
+
+        .project p {
+            color: rgba(226, 232, 240, 0.74);
+            margin: 0 0 18px;
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stack span {
+            padding: 6px 9px;
+            border-radius: 999px;
+            background: rgba(226, 232, 240, 0.04);
+            border: 1px solid rgba(226, 232, 240, 0.12);
+            color: rgba(226, 232, 240, 0.9);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .links a {
+            color: var(--anodized-champagne);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 10px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .links a:hover {
+            background: rgba(212, 175, 55, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+
+        .metric {
+            background: var(--soft-panel);
+            border: 1px solid var(--soft-line);
+            border-radius: 20px;
+            padding: 20px 18px;
+        }
+
+        .metric .big {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--anodized-champagne);
+            letter-spacing: -0.06em;
+            margin-bottom: 6px;
+        }
+
+        .metric .small {
+            color: rgba(226, 232, 240, 0.78);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .cta {
+            padding: 72px 0 96px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(42,46,53,0.8));
+            border: 1px solid var(--soft-line);
+            border-radius: 28px;
+            padding: 42px 30px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
             flex-wrap: wrap;
         }
 
-        .project-links a {
-            display: inline-block;
-            color: var(--anodized-champagne);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.6rem 1.2rem;
-            border: 1px solid var(--anodized-champagne);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            background: transparent;
-            font-weight: 600;
-            letter-spacing: 0.3px;
+        .cta-box h3 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 3.2vw, 3rem);
+            letter-spacing: -0.06em;
+            color: var(--liquid-silver);
         }
 
-        .project-links a:hover {
-            background: var(--anodized-champagne);
-            color: var(--deep-space-charcoal);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
-        }
-
-        .language-badge {
-            display: inline-block;
-            background: transparent;
-            color: var(--frosted-gold);
-            padding: 0.4rem 0.9rem;
-            border-radius: 2px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 0.3rem 0.3rem 0.3rem 0;
-            border: 1px solid var(--slate-core);
-            letter-spacing: 0.2px;
+        .cta-box p {
+            margin: 0;
+            color: rgba(226, 232, 240, 0.8);
+            max-width: 590px;
         }
 
         footer {
-            background: var(--slate-core);
-            color: var(--liquid-silver);
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 2px solid var(--anodized-champagne);
+            border-top: 1px solid var(--soft-line);
+            background: rgba(18,18,20,0.9);
+            padding: 28px 0 54px;
         }
 
-        footer a {
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            color: rgba(226, 232, 240, 0.7);
+            font-size: 0.88rem;
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .foot-links a {
             color: var(--anodized-champagne);
-            text-decoration: none;
-            transition: all 0.3s ease;
             font-weight: 600;
         }
 
-        footer a:hover {
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+        @media (max-width: 920px) {
+            .hero-grid,
+            .split,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .highlight {
-            color: var(--anodized-champagne);
-            font-weight: 700;
-        }
-
-        h3 {
-            font-weight: 700;
-            letter-spacing: -0.3px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
+        @media (max-width: 640px) {
+            .topbar-inner,
+            .section-head,
+            .cta-box,
+            .foot {
+                display: block;
             }
 
-            .subtitle {
-                font-size: 1rem;
+            .nav {
+                margin-top: 12px;
             }
 
-            h2 {
-                font-size: 1.6rem;
+            .hero {
+                padding-top: 56px;
             }
 
-            header {
-                padding: 3rem 1.5rem;
+            .cta-row {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            section {
-                padding: 2.5rem 1.5rem;
+            .btn {
+                width: 100%;
             }
 
-            .container {
-                padding: 0 1rem;
+            .project {
+                min-height: auto;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bagaskoro Saputro</h1>
-        <p class="subtitle">Software Engineer • AI Researcher • Full-Stack Developer</p>
-        <p class="bio">
-            Passionate developer from Indonesia with deep expertise in AI/ML, music technology, IoT systems, and full-stack web development. 
-            Computer Science graduate from UGM with focus on orchestral instrument recognition and AI-driven solutions.
-        </p>
-        <div class="contact-links">
-            <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank">LINKEDIN</a>
-            <a href="https://github.com/bagaswap111" target="_blank">GITHUB</a>
-            <a href="mailto:bagaskoro.saputro@example.com">EMAIL</a>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <div class="brand">Bagaskoro Saputro</div>
+            <nav class="nav" aria-label="Main Navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>🎓 Education & Background</h3>
-                    <p>Computer Science graduate from UGM (Universitas Gadjah Mada) with focus on machine learning and signal processing. 
-                    Specialized in orchestral instrument sound recognition using artificial neural networks.</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">Software engineer • AI researcher</div>
+                    <h1>Building <span class="gold">intelligent</span> products with clarity.</h1>
+                    <p class="lead">
+                        I design and build systems that sit between human intent and real-world execution — from full-stack platforms and AI workflows to IoT systems and research-driven product prototypes.
+                    </p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="https://github.com/bagaswap111" target="_blank" rel="noreferrer">View GitHub</a>
+                        <a class="btn btn-secondary" href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" rel="noreferrer">LinkedIn</a>
+                    </div>
+                    <div class="facts">
+                        <div class="fact">
+                            <span class="value">50+</span>
+                            <span class="label">Projects</span>
+                        </div>
+                        <div class="fact">
+                            <span class="value">8+</span>
+                            <span class="label">Domains</span>
+                        </div>
+                        <div class="fact">
+                            <span class="value">AI</span>
+                            <span class="label">Focused</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-card">
-                    <h3>💡 Core Expertise</h3>
-                    <p>AI/ML implementation, IoT systems, full-stack web development, music technology, cloud infrastructure, 
-                    and collaborative innovation across academic and entrepreneurial projects.</p>
-                </div>
-                <div class="about-card">
-                    <h3>🚀 Mission</h3>
-                    <p>Building intelligent systems that bridge technology and real-world problems. From EV charging networks to AI-powered editors, 
-                    I focus on creating impactful solutions.</p>
-                </div>
-            </div>
 
-            <h3 style="margin-top: 3rem; color: var(--anodized-champagne); font-size: 1.5rem; letter-spacing: -0.3px;">Technical Skills</h3>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Go</span>
-                <span class="skill-tag">Dart</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">C#</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Deep Learning</span>
-                <span class="skill-tag">IoT Systems</span>
-                <span class="skill-tag">Cloud Architecture</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">WebSocket</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Git</span>
+                <aside class="profile-panel" aria-label="Profile summary panel">
+                    <div class="profile-header">
+                        <span><span class="profile-badge"></span>Profile</span>
+                        <span>Available</span>
+                    </div>
+                    <div class="avatar-wrap" aria-label="Bagaskoro Saputro initials"></div>
+                    <div class="mono-box">
+                        <div>role: software_engineer</div>
+                        <div>focus: ai_systems / full_stack / research</div>
+                        <div>location: Indonesia</div>
+                        <div>specialty: product + systems thinking</div>
+                    </div>
+                </aside>
             </div>
         </section>
 
-        <!-- Featured Projects Section -->
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Maya Charge -->
-                <div class="project-card">
-                    <h3>⚡ Maya Charge</h3>
-                    <p>EV Charging Network CSMS platform with Go backend, REST API, billing engine, and OCPP 1.6J WebSocket server. Features PostgreSQL+TimescaleDB, pgBouncer, Redis, EMQX, Prometheus, and Grafana.</p>
-                    <div class="language-badge">Go</div>
-                    <div class="language-badge">PostgreSQL</div>
-                    <div class="language-badge">REST API</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/Maya-Charge-CSMS" target="_blank">Backend</a>
-                        <a href="https://github.com/bagaswap111/Maya-Charge-Docs" target="_blank">Docs</a>
-                    </div>
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>About</h2>
+                    <span>Engineer • Researcher • Builder</span>
                 </div>
 
-                <!-- AI Editor -->
-                <div class="project-card">
-                    <h3>📝 Editor Naskah Indonesia</h3>
-                    <p>AI-powered Indonesian text editor with 3-layer workflow: mechanical proofreading (PUEBI & KBBI), structural editing, and developmental editing. Uses LLM for fact-checking.</p>
-                    <div class="language-badge">Python</div>
-                    <div class="language-badge">AI/LLM</div>
-                    <div class="language-badge">NLP</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/Editor-Naskah-Indonesia-Pro-Skill" target="_blank">Repository</a>
+                <div class="split">
+                    <div class="card about-copy">
+                        <p>
+                            I’m Bagaskoro Saputro, a software engineer and AI researcher with a strong interest in building meaningful digital products that combine technical depth with practical impact.
+                        </p>
+                        <p>
+                            My background spans machine learning, full-stack development, IoT, cloud architecture, and research-driven experimentation. I enjoy solving complex problems across business, product, and systems layers — especially where software can improve real people’s workflows and experiences.
+                        </p>
                     </div>
-                </div>
 
-                <!-- Music Technology -->
-                <div class="project-card">
-                    <h3>🎼 Orchestral Recognition</h3>
-                    <p>Research on orchestral instrument classification using artificial neural networks. Analyzes audio signals to identify instruments in real-time with applications in music education.</p>
-                    <div class="language-badge">Python</div>
-                    <div class="language-badge">ML/DL</div>
-                    <div class="language-badge">Audio</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/MaestroPro" target="_blank">MaestroPro</a>
-                    </div>
-                </div>
-
-                <!-- IoT Systems -->
-                <div class="project-card">
-                    <h3>💧 SWQM</h3>
-                    <p>Smart Water Quality Monitoring system for real-time monitoring with sensor integration, data visualization, and alert mechanisms for environmental monitoring.</p>
-                    <div class="language-badge">Python</div>
-                    <div class="language-badge">IoT</div>
-                    <div class="language-badge">Sensors</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/SWQM" target="_blank">Repository</a>
-                    </div>
-                </div>
-
-                <!-- Blockchain -->
-                <div class="project-card">
-                    <h3>⛓️ SILM Blockchain</h3>
-                    <p>Custom blockchain implementation for supply chain and identity management. Explores distributed ledger technology applications in real-world scenarios.</p>
-                    <div class="language-badge">Python</div>
-                    <div class="language-badge">Blockchain</div>
-                    <div class="language-badge">Crypto</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/SILM-blockchain" target="_blank">Repository</a>
-                    </div>
-                </div>
-
-                <!-- Mobile Apps -->
-                <div class="project-card">
-                    <h3>📱 Mobile Applications</h3>
-                    <p>Flutter/Dart applications for logistics, civic engagement, and utility services. Includes smart pickup routing, whistleblower platforms, and user-centric UX design.</p>
-                    <div class="language-badge">Dart</div>
-                    <div class="language-badge">Flutter</div>
-                    <div class="language-badge">Mobile</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/smart-pickup-builder-app" target="_blank">Smart Pickup</a>
-                    </div>
-                </div>
-
-                <!-- AI Skills -->
-                <div class="project-card">
-                    <h3>🤖 AI Coding Skills</h3>
-                    <p>Crafted skills for Claude Code, Cursor, GitHub Copilot, and Windsurf. Includes usability heuristics evaluation, research paper automation, and architectural diagramming.</p>
-                    <div class="language-badge">Skills</div>
-                    <div class="language-badge">AI-Tools</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/phd-skills" target="_blank">PhD Skills</a>
-                        <a href="https://github.com/bagaswap111/usability-heuristics-skill" target="_blank">UX Eval</a>
-                    </div>
-                </div>
-
-                <!-- Academic & Research -->
-                <div class="project-card">
-                    <h3>🏫 Research</h3>
-                    <p>Various research proposals and collaborative projects including RIIM BRIN research, MBA studies support, and neuromarketing analysis using eye-tracking.</p>
-                    <div class="language-badge">Research</div>
-                    <div class="language-badge">Collab</div>
-                    <div class="project-links">
-                        <a href="https://github.com/bagaswap111/riim-brin-2026-proposal" target="_blank">RIIM BRIN</a>
+                    <div class="card">
+                        <div class="skills-wrap">
+                            <span class="chip">Python</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">Go</span>
+                            <span class="chip">Dart</span>
+                            <span class="chip">React</span>
+                            <span class="chip">AI/ML</span>
+                            <span class="chip">IoT</span>
+                            <span class="chip">Cloud</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">Docker</span>
+                            <span class="chip">WebSockets</span>
+                            <span class="chip">Research</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Statistics & Highlights -->
-        <section id="highlights">
-            <h2>Key Highlights</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>🏆 Technical Depth</h3>
-                    <p><span class="highlight">50+ repositories</span> showcasing expertise across backend systems, AI/ML models, mobile development, and IoT solutions.</p>
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Selected work</h2>
+                    <span>High-impact builds</span>
                 </div>
-                <div class="about-card">
-                    <h3>🎯 Project Diversity</h3>
-                    <p>Full-stack experience from <span class="highlight">infrastructure to UI</span>, spanning multiple programming languages and architectural patterns.</p>
+
+                <div class="project-grid">
+                    <article class="project">
+                        <div>
+                            <div class="project-head">
+                                <span class="project-type">Platform</span>
+                            </div>
+                            <h3>Maya Charge</h3>
+                            <p>End-to-end EV charging management platform with backend orchestration, billing logic, OCPP integration, and observability for modern charging infrastructure.</p>
+                            <div class="stack">
+                                <span>Go</span>
+                                <span>PostgreSQL</span>
+                                <span>OCPP</span>
+                                <span>Monitoring</span>
+                            </div>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/bagaswap111/Maya-Charge-CSMS" target="_blank" rel="noreferrer">Backend</a>
+                            <a href="https://github.com/bagaswap111/Maya-Charge-Docs" target="_blank" rel="noreferrer">Docs</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div>
+                            <div class="project-head">
+                                <span class="project-type">AI</span>
+                            </div>
+                            <h3>Editor Naskah Indonesia</h3>
+                            <p>AI editing workflow for Bahasa Indonesia with proofreading, structural revision, and developmental review to enhance linguistic quality and content depth.</p>
+                            <div class="stack">
+                                <span>Python</span>
+                                <span>LLM</span>
+                                <span>NLP</span>
+                                <span>Productivity</span>
+                            </div>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/bagaswap111/Editor-Naskah-Indonesia-Pro-Skill" target="_blank" rel="noreferrer">Repository</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div>
+                            <div class="project-head">
+                                <span class="project-type">Research</span>
+                            </div>
+                            <h3>Orchestral Sound Recognition</h3>
+                            <p>Research and prototype work in signal processing and neural classification for musical instrument recognition and analytical audio modeling.</p>
+                            <div class="stack">
+                                <span>Python</span>
+                                <span>ML</span>
+                                <span>Audio</span>
+                                <span>Research</span>
+                            </div>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/bagaswap111/MaestroPro" target="_blank" rel="noreferrer">Explore</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div>
+                            <div class="project-head">
+                                <span class="project-type">Systems</span>
+                            </div>
+                            <h3>SWQM</h3>
+                            <p>Smart water quality monitoring solution for real-time environmental sensing, signal capture, and actionable reporting for resource management.</p>
+                            <div class="stack">
+                                <span>Python</span>
+                                <span>IoT</span>
+                                <span>Sensors</span>
+                                <span>Monitoring</span>
+                            </div>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/bagaswap111/SWQM" target="_blank" rel="noreferrer">Repository</a>
+                        </div>
+                    </article>
                 </div>
-                <div class="about-card">
-                    <h3>🌐 Real-World Impact</h3>
-                    <p>Projects addressing practical needs: EV charging networks, water quality monitoring, civic engagement, and AI-powered content tools.</p>
+
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="big">50+</div>
+                        <div class="small">Repository experiments</div>
+                    </div>
+                    <div class="metric">
+                        <div class="big">8</div>
+                        <div class="small">Technical domains</div>
+                    </div>
+                    <div class="metric">
+                        <div class="big">AI</div>
+                        <div class="small">Core focus area</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Connect Section -->
-        <section id="connect">
-            <h2>Let's Connect</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--liquid-silver); font-weight: 300;">
-                I'm always interested in collaborating on innovative projects, discussing technology trends, or exploring new opportunities in AI and software engineering.
-            </p>
-            <div class="skills" style="justify-content: center;">
-                <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" style="text-decoration: none;">
-                    <span class="skill-tag" style="cursor: pointer;">CONNECT ON LINKEDIN</span>
-                </a>
-                <a href="https://github.com/bagaswap111" target="_blank" style="text-decoration: none;">
-                    <span class="skill-tag" style="cursor: pointer;">EXPLORE GITHUB</span>
-                </a>
-                <a href="mailto:bagaskoro.saputro@example.com" style="text-decoration: none;">
-                    <span class="skill-tag" style="cursor: pointer;">SEND EMAIL</span>
-                </a>
+        <section id="contact" class="cta">
+            <div class="container">
+                <div class="cta-box">
+                    <div>
+                        <h3>Let’s build something meaningful.</h3>
+                        <p>I’m open to collaborations, product work, research projects, and software opportunities where thoughtful engineering can create measurable impact.</p>
+                    </div>
+                    <div class="cta-row" style="margin:0;">
+                        <a class="btn btn-primary" href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" rel="noreferrer">Connect</a>
+                        <a class="btn btn-secondary" href="mailto:bagaskoro.saputro@example.com">Email</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Bagaskoro Saputro. All rights reserved. | <a href="https://github.com/bagaswap111" target="_blank">GitHub</a> | 
-        <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank">LinkedIn</a></p>
+        <div class="container foot">
+            <div>© 2026 Bagaskoro Saputro</div>
+            <div class="foot-links">
+                <a href="https://github.com/bagaswap111" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
