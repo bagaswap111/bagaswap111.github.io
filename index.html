@@ -12,27 +12,27 @@
         }
 
         :root {
-            --obsidian-black: #0B0C10;
-            --dark-titanium: #1F2833;
-            --polished-platinum: #C5C6C7;
-            --electric-aqua: #66FCF1;
-            --deep-cyan: #45A29E;
+            --deep-space-charcoal: #121214;
+            --liquid-silver: #E2E8F0;
+            --anodized-champagne: #D4AF37;
+            --frosted-gold: #F3E5AB;
+            --slate-core: #2A2E35;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--polished-platinum);
-            background: var(--obsidian-black);
+            color: var(--liquid-silver);
+            background: var(--deep-space-charcoal);
             min-height: 100vh;
         }
 
         header {
-            background: var(--dark-titanium);
-            color: var(--polished-platinum);
-            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--slate-core) 0%, var(--deep-space-charcoal) 100%);
+            color: var(--liquid-silver);
+            padding: 5rem 2rem;
             text-align: center;
-            border-bottom: 3px solid var(--electric-aqua);
+            border-bottom: 2px solid var(--anodized-champagne);
             position: relative;
             overflow: hidden;
         }
@@ -44,7 +44,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 252, 241, 0.1) 0%, rgba(69, 162, 158, 0.1) 100%);
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -60,29 +60,33 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            color: var(--electric-aqua);
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--anodized-champagne);
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
         }
 
         .subtitle {
             font-size: 1.3rem;
-            color: var(--electric-aqua);
+            color: var(--frosted-gold);
             margin-bottom: 1rem;
-            font-weight: 600;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .bio {
             font-size: 1.1rem;
             max-width: 800px;
-            margin: 1rem auto;
+            margin: 1.5rem auto;
             line-height: 1.8;
-            color: var(--polished-platinum);
+            color: var(--liquid-silver);
+            font-weight: 300;
         }
 
         .contact-links {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             display: flex;
             justify-content: center;
             gap: 1.5rem;
@@ -90,34 +94,35 @@
         }
 
         .contact-links a {
-            color: var(--electric-aqua);
+            color: var(--anodized-champagne);
             text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border: 2px solid var(--electric-aqua);
-            border-radius: 5px;
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--anodized-champagne);
+            border-radius: 3px;
             transition: all 0.3s ease;
             font-weight: 600;
             background: transparent;
+            letter-spacing: 0.5px;
         }
 
         .contact-links a:hover {
-            background: var(--electric-aqua);
-            color: var(--obsidian-black);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+            background: var(--anodized-champagne);
+            color: var(--deep-space-charcoal);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
         }
 
         main {
-            background: var(--dark-titanium);
-            margin: 3rem auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            background: var(--deep-space-charcoal);
+            margin: 4rem auto;
+            border-radius: 3px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
             overflow: hidden;
-            border: 1px solid var(--deep-cyan);
+            border: 1px solid var(--slate-core);
         }
 
         section {
-            padding: 3rem 2rem;
-            border-bottom: 1px solid rgba(102, 252, 241, 0.2);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--slate-core);
         }
 
         section:last-child {
@@ -125,112 +130,154 @@
         }
 
         h2 {
-            color: var(--electric-aqua);
-            font-size: 2rem;
+            color: var(--anodized-champagne);
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         h2::before {
             content: '';
-            width: 4px;
-            height: 2rem;
-            background: var(--electric-aqua);
-            border-radius: 2px;
+            width: 3px;
+            height: 2.2rem;
+            background: var(--anodized-champagne);
+            border-radius: 1px;
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .about-card {
-            padding: 1.5rem;
-            background: rgba(102, 252, 241, 0.05);
-            border-left: 4px solid var(--electric-aqua);
-            border-radius: 5px;
-            border: 1px solid var(--deep-cyan);
-            backdrop-filter: blur(10px);
+            padding: 2rem;
+            background: rgba(42, 46, 53, 0.4);
+            border: 1px solid var(--slate-core);
+            border-radius: 3px;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--anodized-champagne);
+            border-radius: 3px 3px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .about-card:hover {
-            background: rgba(102, 252, 241, 0.1);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
+            background: rgba(42, 46, 53, 0.7);
+            border-color: var(--anodized-champagne);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
         }
 
         .about-card h3 {
-            color: var(--electric-aqua);
-            margin-bottom: 0.5rem;
+            color: var(--frosted-gold);
+            margin-bottom: 0.8rem;
             font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .about-card p {
-            color: var(--polished-platinum);
+            color: var(--liquid-silver);
             line-height: 1.7;
+            font-weight: 300;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .skill-tag {
-            background: rgba(69, 162, 158, 0.3);
-            color: var(--electric-aqua);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
+            background: transparent;
+            color: var(--anodized-champagne);
+            padding: 0.7rem 1.4rem;
+            border-radius: 3px;
             font-size: 0.9rem;
             font-weight: 600;
-            border: 1px solid var(--deep-cyan);
+            border: 1px solid var(--anodized-champagne);
             transition: all 0.3s ease;
+            letter-spacing: 0.3px;
         }
 
         .skill-tag:hover {
-            background: var(--deep-cyan);
-            color: var(--obsidian-black);
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
+            background: var(--anodized-champagne);
+            color: var(--deep-space-charcoal);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
 
         .project-card {
-            border: 1px solid var(--deep-cyan);
-            border-radius: 8px;
-            padding: 1.5rem;
+            border: 1px solid var(--slate-core);
+            border-radius: 3px;
+            padding: 2rem;
             transition: all 0.3s ease;
-            background: rgba(31, 40, 51, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(42, 46, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--anodized-champagne), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(102, 252, 241, 0.3);
-            border-color: var(--electric-aqua);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
+            border-color: var(--anodized-champagne);
+            background: rgba(42, 46, 53, 0.6);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card h3 {
-            color: var(--electric-aqua);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            color: var(--frosted-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+            font-weight: 700;
         }
 
         .project-card p {
-            color: var(--polished-platinum);
+            color: var(--liquid-silver);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
         .project-links {
@@ -241,77 +288,69 @@
 
         .project-links a {
             display: inline-block;
-            color: var(--electric-aqua);
+            color: var(--anodized-champagne);
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--deep-cyan);
-            border-radius: 4px;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--anodized-champagne);
+            border-radius: 3px;
             transition: all 0.3s ease;
-            background: rgba(69, 162, 158, 0.1);
+            background: transparent;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .project-links a:hover {
-            background: var(--electric-aqua);
-            color: var(--obsidian-black);
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+            background: var(--anodized-champagne);
+            color: var(--deep-space-charcoal);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
         }
 
         .language-badge {
             display: inline-block;
-            background: rgba(102, 252, 241, 0.15);
-            color: var(--electric-aqua);
-            padding: 0.3rem 0.8rem;
-            border-radius: 3px;
+            background: transparent;
+            color: var(--frosted-gold);
+            padding: 0.4rem 0.9rem;
+            border-radius: 2px;
             font-size: 0.85rem;
             font-weight: 600;
             margin: 0.3rem 0.3rem 0.3rem 0;
-            border: 1px solid rgba(102, 252, 241, 0.3);
+            border: 1px solid var(--slate-core);
+            letter-spacing: 0.2px;
         }
 
         footer {
-            background: var(--obsidian-black);
-            color: var(--polished-platinum);
+            background: var(--slate-core);
+            color: var(--liquid-silver);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            border-top: 2px solid var(--electric-aqua);
+            padding: 3rem 2rem;
+            border-top: 2px solid var(--anodized-champagne);
         }
 
         footer a {
-            color: var(--electric-aqua);
+            color: var(--anodized-champagne);
             text-decoration: none;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
 
         footer a:hover {
-            text-decoration: underline;
-            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .highlight {
-            color: var(--electric-aqua);
+            color: var(--anodized-champagne);
             font-weight: 700;
         }
 
-        /* Glow effect for interactive elements */
-        @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(102, 252, 241, 0.8);
-            }
-        }
-
-        h1 {
-            animation: glow 3s ease-in-out infinite;
+        h3 {
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .subtitle {
@@ -319,15 +358,19 @@
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             header {
-                padding: 2rem 1rem;
+                padding: 3rem 1.5rem;
             }
 
             section {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
             }
         }
     </style>
@@ -341,9 +384,9 @@
             Computer Science graduate from UGM with focus on orchestral instrument recognition and AI-driven solutions.
         </p>
         <div class="contact-links">
-            <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/bagaswap111" target="_blank">GitHub</a>
-            <a href="mailto:bagaskoro.saputro@example.com">Email</a>
+            <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank">LINKEDIN</a>
+            <a href="https://github.com/bagaswap111" target="_blank">GITHUB</a>
+            <a href="mailto:bagaskoro.saputro@example.com">EMAIL</a>
         </div>
     </header>
 
@@ -369,22 +412,24 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 2rem; color: var(--electric-aqua);">Technical Skills</h3>
+            <h3 style="margin-top: 3rem; color: var(--anodized-champagne); font-size: 1.5rem; letter-spacing: -0.3px;">Technical Skills</h3>
             <div class="skills">
                 <span class="skill-tag">Python</span>
-                <span class="skill-tag">TypeScript/JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">JavaScript</span>
                 <span class="skill-tag">Go</span>
-                <span class="skill-tag">Dart/Flutter</span>
-                <span class="skill-tag">C++ / C#</span>
+                <span class="skill-tag">Dart</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">C#</span>
                 <span class="skill-tag">React.js</span>
                 <span class="skill-tag">Machine Learning</span>
                 <span class="skill-tag">Deep Learning</span>
                 <span class="skill-tag">IoT Systems</span>
                 <span class="skill-tag">Cloud Architecture</span>
                 <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">WebSocket/MQTT</span>
+                <span class="skill-tag">WebSocket</span>
                 <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Git/GitHub</span>
+                <span class="skill-tag">Git</span>
             </div>
         </section>
 
@@ -394,9 +439,8 @@
             <div class="projects-grid">
                 <!-- Maya Charge -->
                 <div class="project-card">
-                    <h3>⚡ Maya Charge - EV Charging Network</h3>
-                    <p>Complete CSMS platform with Go backend, REST API, billing engine, and OCPP 1.6J WebSocket server. 
-                    Features PostgreSQL+TimescaleDB, pgBouncer, Redis, EMQX, Prometheus, and Grafana for monitoring.</p>
+                    <h3>⚡ Maya Charge</h3>
+                    <p>EV Charging Network CSMS platform with Go backend, REST API, billing engine, and OCPP 1.6J WebSocket server. Features PostgreSQL+TimescaleDB, pgBouncer, Redis, EMQX, Prometheus, and Grafana.</p>
                     <div class="language-badge">Go</div>
                     <div class="language-badge">PostgreSQL</div>
                     <div class="language-badge">REST API</div>
@@ -408,9 +452,8 @@
 
                 <!-- AI Editor -->
                 <div class="project-card">
-                    <h3>📝 Editor Naskah Indonesia Pro-Skill</h3>
-                    <p>AI-powered Indonesian text editor with 3-layer workflow: mechanical proofreading (PUEBI & KBBI), 
-                    structural editing, and developmental editing. Uses LLM for fact-checking and content depth analysis.</p>
+                    <h3>📝 Editor Naskah Indonesia</h3>
+                    <p>AI-powered Indonesian text editor with 3-layer workflow: mechanical proofreading (PUEBI & KBBI), structural editing, and developmental editing. Uses LLM for fact-checking.</p>
                     <div class="language-badge">Python</div>
                     <div class="language-badge">AI/LLM</div>
                     <div class="language-badge">NLP</div>
@@ -421,12 +464,11 @@
 
                 <!-- Music Technology -->
                 <div class="project-card">
-                    <h3>🎼 Orchestral Sound Recognition</h3>
-                    <p>Research project on orchestral instrument classification using artificial neural networks. 
-                    Analyzes audio signals to identify instruments in real-time, with applications in music education and analysis.</p>
+                    <h3>🎼 Orchestral Recognition</h3>
+                    <p>Research on orchestral instrument classification using artificial neural networks. Analyzes audio signals to identify instruments in real-time with applications in music education.</p>
                     <div class="language-badge">Python</div>
                     <div class="language-badge">ML/DL</div>
-                    <div class="language-badge">Audio Processing</div>
+                    <div class="language-badge">Audio</div>
                     <div class="project-links">
                         <a href="https://github.com/bagaswap111/MaestroPro" target="_blank">MaestroPro</a>
                     </div>
@@ -434,9 +476,8 @@
 
                 <!-- IoT Systems -->
                 <div class="project-card">
-                    <h3>💧 SWQM - Smart Water Quality Monitoring</h3>
-                    <p>IoT system for real-time water quality monitoring with sensor integration, 
-                    data visualization, and alert mechanisms for environmental monitoring.</p>
+                    <h3>💧 SWQM</h3>
+                    <p>Smart Water Quality Monitoring system for real-time monitoring with sensor integration, data visualization, and alert mechanisms for environmental monitoring.</p>
                     <div class="language-badge">Python</div>
                     <div class="language-badge">IoT</div>
                     <div class="language-badge">Sensors</div>
@@ -448,11 +489,10 @@
                 <!-- Blockchain -->
                 <div class="project-card">
                     <h3>⛓️ SILM Blockchain</h3>
-                    <p>Custom blockchain implementation for supply chain and identity management. 
-                    Explores distributed ledger technology applications in real-world scenarios.</p>
+                    <p>Custom blockchain implementation for supply chain and identity management. Explores distributed ledger technology applications in real-world scenarios.</p>
                     <div class="language-badge">Python</div>
                     <div class="language-badge">Blockchain</div>
-                    <div class="language-badge">Cryptography</div>
+                    <div class="language-badge">Crypto</div>
                     <div class="project-links">
                         <a href="https://github.com/bagaswap111/SILM-blockchain" target="_blank">Repository</a>
                     </div>
@@ -461,8 +501,7 @@
                 <!-- Mobile Apps -->
                 <div class="project-card">
                     <h3>📱 Mobile Applications</h3>
-                    <p>Flutter/Dart applications for logistics, civic engagement, and utility services. 
-                    Includes smart pickup routing, whistleblower platforms, and user-centric UX design.</p>
+                    <p>Flutter/Dart applications for logistics, civic engagement, and utility services. Includes smart pickup routing, whistleblower platforms, and user-centric UX design.</p>
                     <div class="language-badge">Dart</div>
                     <div class="language-badge">Flutter</div>
                     <div class="language-badge">Mobile</div>
@@ -473,9 +512,8 @@
 
                 <!-- AI Skills -->
                 <div class="project-card">
-                    <h3>🤖 AI Coding Skills & Tools</h3>
-                    <p>Crafted skills for Claude Code, Cursor, GitHub Copilot, and Windsurf. Includes usability heuristics evaluation, 
-                    research paper automation, and architectural diagramming tools.</p>
+                    <h3>🤖 AI Coding Skills</h3>
+                    <p>Crafted skills for Claude Code, Cursor, GitHub Copilot, and Windsurf. Includes usability heuristics evaluation, research paper automation, and architectural diagramming.</p>
                     <div class="language-badge">Skills</div>
                     <div class="language-badge">AI-Tools</div>
                     <div class="project-links">
@@ -484,13 +522,12 @@
                     </div>
                 </div>
 
-                <!-- Collaborative Projects -->
+                <!-- Academic & Research -->
                 <div class="project-card">
-                    <h3>🏫 Academic & Research</h3>
-                    <p>Various research proposals and collaborative projects including RIIM BRIN research, 
-                    MBA studies support, and neuromarketing analysis using eye-tracking technology.</p>
+                    <h3>🏫 Research</h3>
+                    <p>Various research proposals and collaborative projects including RIIM BRIN research, MBA studies support, and neuromarketing analysis using eye-tracking.</p>
                     <div class="language-badge">Research</div>
-                    <div class="language-badge">Collaboration</div>
+                    <div class="language-badge">Collab</div>
                     <div class="project-links">
                         <a href="https://github.com/bagaswap111/riim-brin-2026-proposal" target="_blank">RIIM BRIN</a>
                     </div>
@@ -504,18 +541,15 @@
             <div class="about-grid">
                 <div class="about-card">
                     <h3>🏆 Technical Depth</h3>
-                    <p><span class="highlight">50+ repositories</span> showcasing expertise across backend systems, 
-                    AI/ML models, mobile development, and IoT solutions.</p>
+                    <p><span class="highlight">50+ repositories</span> showcasing expertise across backend systems, AI/ML models, mobile development, and IoT solutions.</p>
                 </div>
                 <div class="about-card">
                     <h3>🎯 Project Diversity</h3>
-                    <p>Full-stack experience from <span class="highlight">infrastructure to UI</span>, 
-                    spanning multiple programming languages and architectural patterns.</p>
+                    <p>Full-stack experience from <span class="highlight">infrastructure to UI</span>, spanning multiple programming languages and architectural patterns.</p>
                 </div>
                 <div class="about-card">
                     <h3>🌐 Real-World Impact</h3>
-                    <p>Projects addressing practical needs: EV charging networks, water quality monitoring, 
-                    civic engagement, and AI-powered content tools.</p>
+                    <p>Projects addressing practical needs: EV charging networks, water quality monitoring, civic engagement, and AI-powered content tools.</p>
                 </div>
             </div>
         </section>
@@ -523,18 +557,18 @@
         <!-- Connect Section -->
         <section id="connect">
             <h2>Let's Connect</h2>
-            <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--polished-platinum);">
+            <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--liquid-silver); font-weight: 300;">
                 I'm always interested in collaborating on innovative projects, discussing technology trends, or exploring new opportunities in AI and software engineering.
             </p>
             <div class="skills" style="justify-content: center;">
                 <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" style="text-decoration: none;">
-                    <span class="skill-tag" style="cursor: pointer;">Connect on LinkedIn</span>
+                    <span class="skill-tag" style="cursor: pointer;">CONNECT ON LINKEDIN</span>
                 </a>
                 <a href="https://github.com/bagaswap111" target="_blank" style="text-decoration: none;">
-                    <span class="skill-tag" style="cursor: pointer;">Explore GitHub</span>
+                    <span class="skill-tag" style="cursor: pointer;">EXPLORE GITHUB</span>
                 </a>
                 <a href="mailto:bagaskoro.saputro@example.com" style="text-decoration: none;">
-                    <span class="skill-tag" style="cursor: pointer;">Send Email</span>
+                    <span class="skill-tag" style="cursor: pointer;">SEND EMAIL</span>
                 </a>
             </div>
         </section>
