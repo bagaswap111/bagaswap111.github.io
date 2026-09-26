@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagaskoro Saputro - Software Engineer & AI Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 1rem auto;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .contact-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: #667eea;
+            color: #fff;
+        }
+
+        main {
+            background: #fff;
+            margin: 3rem auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        section {
+            padding: 3rem 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 2rem;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-card {
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .about-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-card {
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #667eea;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background: #667eea;
+            color: #fff;
+        }
+
+        .language-badge {
+            display: inline-block;
+            background: #e8eaf6;
+            color: #667eea;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 3px solid #667eea;
+        }
+
+        .highlight {
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bagaskoro Saputro</h1>
+        <p class="subtitle">Software Engineer • AI Researcher • Full-Stack Developer</p>
+        <p class="bio">
+            Passionate developer from Indonesia with deep expertise in AI/ML, music technology, IoT systems, and full-stack web development. 
+            Computer Science graduate from UGM with focus on orchestral instrument recognition and AI-driven solutions.
+        </p>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/bagaswap111" target="_blank">GitHub</a>
+            <a href="mailto:bagaskoro.saputro@example.com">Email</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>🎓 Education & Background</h3>
+                    <p>Computer Science graduate from UGM (Universitas Gadjah Mada) with focus on machine learning and signal processing. 
+                    Specialized in orchestral instrument sound recognition using artificial neural networks.</p>
+                </div>
+                <div class="about-card">
+                    <h3>💡 Core Expertise</h3>
+                    <p>AI/ML implementation, IoT systems, full-stack web development, music technology, cloud infrastructure, 
+                    and collaborative innovation across academic and entrepreneurial projects.</p>
+                </div>
+                <div class="about-card">
+                    <h3>🚀 Mission</h3>
+                    <p>Building intelligent systems that bridge technology and real-world problems. From EV charging networks to AI-powered editors, 
+                    I focus on creating impactful solutions.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #667eea;">Technical Skills</h3>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">TypeScript/JavaScript</span>
+                <span class="skill-tag">Go</span>
+                <span class="skill-tag">Dart/Flutter</span>
+                <span class="skill-tag">C++ / C#</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">IoT Systems</span>
+                <span class="skill-tag">Cloud Architecture</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">WebSocket/MQTT</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Git/GitHub</span>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Maya Charge -->
+                <div class="project-card">
+                    <h3>⚡ Maya Charge - EV Charging Network</h3>
+                    <p>Complete CSMS platform with Go backend, REST API, billing engine, and OCPP 1.6J WebSocket server. 
+                    Features PostgreSQL+TimescaleDB, pgBouncer, Redis, EMQX, Prometheus, and Grafana for monitoring.</p>
+                    <div class="language-badge">Go</div>
+                    <div class="language-badge">PostgreSQL</div>
+                    <div class="language-badge">REST API</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/Maya-Charge-CSMS" target="_blank">Backend</a>
+                        <a href="https://github.com/bagaswap111/Maya-Charge-Docs" target="_blank">Docs</a>
+                    </div>
+                </div>
+
+                <!-- AI Editor -->
+                <div class="project-card">
+                    <h3>📝 Editor Naskah Indonesia Pro-Skill</h3>
+                    <p>AI-powered Indonesian text editor with 3-layer workflow: mechanical proofreading (PUEBI & KBBI), 
+                    structural editing, and developmental editing. Uses LLM for fact-checking and content depth analysis.</p>
+                    <div class="language-badge">Python</div>
+                    <div class="language-badge">AI/LLM</div>
+                    <div class="language-badge">NLP</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/Editor-Naskah-Indonesia-Pro-Skill" target="_blank">Repository</a>
+                    </div>
+                </div>
+
+                <!-- Music Technology -->
+                <div class="project-card">
+                    <h3>🎼 Orchestral Sound Recognition</h3>
+                    <p>Research project on orchestral instrument classification using artificial neural networks. 
+                    Analyzes audio signals to identify instruments in real-time, with applications in music education and analysis.</p>
+                    <div class="language-badge">Python</div>
+                    <div class="language-badge">ML/DL</div>
+                    <div class="language-badge">Audio Processing</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/MaestroPro" target="_blank">MaestroPro</a>
+                    </div>
+                </div>
+
+                <!-- IoT Systems -->
+                <div class="project-card">
+                    <h3>💧 SWQM - Smart Water Quality Monitoring</h3>
+                    <p>IoT system for real-time water quality monitoring with sensor integration, 
+                    data visualization, and alert mechanisms for environmental monitoring.</p>
+                    <div class="language-badge">Python</div>
+                    <div class="language-badge">IoT</div>
+                    <div class="language-badge">Sensors</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/SWQM" target="_blank">Repository</a>
+                    </div>
+                </div>
+
+                <!-- Blockchain -->
+                <div class="project-card">
+                    <h3>⛓️ SILM Blockchain</h3>
+                    <p>Custom blockchain implementation for supply chain and identity management. 
+                    Explores distributed ledger technology applications in real-world scenarios.</p>
+                    <div class="language-badge">Python</div>
+                    <div class="language-badge">Blockchain</div>
+                    <div class="language-badge">Cryptography</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/SILM-blockchain" target="_blank">Repository</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Apps -->
+                <div class="project-card">
+                    <h3>📱 Mobile Applications</h3>
+                    <p>Flutter/Dart applications for logistics, civic engagement, and utility services. 
+                    Includes smart pickup routing, whistleblower platforms, and user-centric UX design.</p>
+                    <div class="language-badge">Dart</div>
+                    <div class="language-badge">Flutter</div>
+                    <div class="language-badge">Mobile</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/smart-pickup-builder-app" target="_blank">Smart Pickup</a>
+                    </div>
+                </div>
+
+                <!-- AI Skills -->
+                <div class="project-card">
+                    <h3>🤖 AI Coding Skills & Tools</h3>
+                    <p>Crafted skills for Claude Code, Cursor, GitHub Copilot, and Windsurf. Includes usability heuristics evaluation, 
+                    research paper automation, and architectural diagramming tools.</p>
+                    <div class="language-badge">Skills</div>
+                    <div class="language-badge">AI-Tools</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/phd-skills" target="_blank">PhD Skills</a>
+                        <a href="https://github.com/bagaswap111/usability-heuristics-skill" target="_blank">UX Eval</a>
+                    </div>
+                </div>
+
+                <!-- Collaborative Projects -->
+                <div class="project-card">
+                    <h3>🏫 Academic & Research</h3>
+                    <p>Various research proposals and collaborative projects including RIIM BRIN research, 
+                    MBA studies support, and neuromarketing analysis using eye-tracking technology.</p>
+                    <div class="language-badge">Research</div>
+                    <div class="language-badge">Collaboration</div>
+                    <div class="project-links">
+                        <a href="https://github.com/bagaswap111/riim-brin-2026-proposal" target="_blank">RIIM BRIN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics & Highlights -->
+        <section id="highlights">
+            <h2>Key Highlights</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>🏆 Technical Depth</h3>
+                    <p><span class="highlight">50+ repositories</span> showcasing expertise across backend systems, 
+                    AI/ML models, mobile development, and IoT solutions.</p>
+                </div>
+                <div class="about-card">
+                    <h3>🎯 Project Diversity</h3>
+                    <p>Full-stack experience from <span class="highlight">infrastructure to UI</span>, 
+                    spanning multiple programming languages and architectural patterns.</p>
+                </div>
+                <div class="about-card">
+                    <h3>🌐 Real-World Impact</h3>
+                    <p>Projects addressing practical needs: EV charging networks, water quality monitoring, 
+                    civic engagement, and AI-powered content tools.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect Section -->
+        <section id="connect">
+            <h2>Let's Connect</h2>
+            <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                I'm always interested in collaborating on innovative projects, discussing technology trends, or exploring new opportunities in AI and software engineering.
+            </p>
+            <div class="skills" style="justify-content: center;">
+                <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" style="text-decoration: none;">
+                    <span class="skill-tag" style="cursor: pointer;">Connect on LinkedIn</span>
+                </a>
+                <a href="https://github.com/bagaswap111" target="_blank" style="text-decoration: none;">
+                    <span class="skill-tag" style="cursor: pointer;">Explore GitHub</span>
+                </a>
+                <a href="mailto:bagaskoro.saputro@example.com" style="text-decoration: none;">
+                    <span class="skill-tag" style="cursor: pointer;">Send Email</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bagaskoro Saputro. All rights reserved. | <a href="https://github.com/bagaswap111" target="_blank" style="color: #667eea; text-decoration: none;">GitHub</a> | 
+        <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" style="color: #667eea; text-decoration: none;">LinkedIn</a></p>
+    </footer>
+</body>
+</html>
