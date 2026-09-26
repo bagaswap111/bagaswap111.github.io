@@ -11,20 +11,46 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --obsidian-black: #0B0C10;
+            --dark-titanium: #1F2833;
+            --polished-platinum: #C5C6C7;
+            --electric-aqua: #66FCF1;
+            --deep-cyan: #45A29E;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--polished-platinum);
+            background: var(--obsidian-black);
             min-height: 100vh;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.9);
-            color: #fff;
+            background: var(--dark-titanium);
+            color: var(--polished-platinum);
             padding: 4rem 2rem;
             text-align: center;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid var(--electric-aqua);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 252, 241, 0.1) 0%, rgba(69, 162, 158, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
         }
 
         .container {
@@ -37,12 +63,14 @@
             font-size: 3rem;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: var(--electric-aqua);
         }
 
         .subtitle {
             font-size: 1.3rem;
-            color: #667eea;
+            color: var(--electric-aqua);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .bio {
@@ -50,7 +78,7 @@
             max-width: 800px;
             margin: 1rem auto;
             line-height: 1.8;
-            color: #ddd;
+            color: var(--polished-platinum);
         }
 
         .contact-links {
@@ -62,30 +90,34 @@
         }
 
         .contact-links a {
-            color: #667eea;
+            color: var(--electric-aqua);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 2px solid #667eea;
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--electric-aqua);
             border-radius: 5px;
             transition: all 0.3s ease;
+            font-weight: 600;
+            background: transparent;
         }
 
         .contact-links a:hover {
-            background: #667eea;
-            color: #fff;
+            background: var(--electric-aqua);
+            color: var(--obsidian-black);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
         }
 
         main {
-            background: #fff;
+            background: var(--dark-titanium);
             margin: 3rem auto;
             border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             overflow: hidden;
+            border: 1px solid var(--deep-cyan);
         }
 
         section {
             padding: 3rem 2rem;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 1px solid rgba(102, 252, 241, 0.2);
         }
 
         section:last-child {
@@ -93,7 +125,7 @@
         }
 
         h2 {
-            color: #667eea;
+            color: var(--electric-aqua);
             font-size: 2rem;
             margin-bottom: 1.5rem;
             display: flex;
@@ -105,7 +137,7 @@
             content: '';
             width: 4px;
             height: 2rem;
-            background: #667eea;
+            background: var(--electric-aqua);
             border-radius: 2px;
         }
 
@@ -118,14 +150,28 @@
 
         .about-card {
             padding: 1.5rem;
-            background: #f9f9f9;
-            border-left: 4px solid #667eea;
+            background: rgba(102, 252, 241, 0.05);
+            border-left: 4px solid var(--electric-aqua);
             border-radius: 5px;
+            border: 1px solid var(--deep-cyan);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            background: rgba(102, 252, 241, 0.1);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
         }
 
         .about-card h3 {
-            color: #667eea;
+            color: var(--electric-aqua);
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .about-card p {
+            color: var(--polished-platinum);
+            line-height: 1.7;
         }
 
         .skills {
@@ -136,12 +182,20 @@
         }
 
         .skill-tag {
-            background: #667eea;
-            color: #fff;
-            padding: 0.5rem 1rem;
+            background: rgba(69, 162, 158, 0.3);
+            color: var(--electric-aqua);
+            padding: 0.6rem 1.2rem;
             border-radius: 20px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid var(--deep-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--deep-cyan);
+            color: var(--obsidian-black);
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
         }
 
         .projects-grid {
@@ -152,27 +206,31 @@
         }
 
         .project-card {
-            border: 2px solid #667eea;
+            border: 1px solid var(--deep-cyan);
             border-radius: 8px;
             padding: 1.5rem;
             transition: all 0.3s ease;
-            background: #f9f9f9;
+            background: rgba(31, 40, 51, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 0 30px rgba(102, 252, 241, 0.3);
+            border-color: var(--electric-aqua);
         }
 
         .project-card h3 {
-            color: #667eea;
+            color: var(--electric-aqua);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .project-card p {
-            color: #666;
+            color: var(--polished-platinum);
             font-size: 0.95rem;
             margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .project-links {
@@ -183,43 +241,72 @@
 
         .project-links a {
             display: inline-block;
-            color: #667eea;
+            color: var(--electric-aqua);
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 0.4rem 0.8rem;
-            border: 1px solid #667eea;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--deep-cyan);
             border-radius: 4px;
             transition: all 0.3s ease;
+            background: rgba(69, 162, 158, 0.1);
+            font-weight: 600;
         }
 
         .project-links a:hover {
-            background: #667eea;
-            color: #fff;
+            background: var(--electric-aqua);
+            color: var(--obsidian-black);
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
         }
 
         .language-badge {
             display: inline-block;
-            background: #e8eaf6;
-            color: #667eea;
-            padding: 0.2rem 0.6rem;
+            background: rgba(102, 252, 241, 0.15);
+            color: var(--electric-aqua);
+            padding: 0.3rem 0.8rem;
             border-radius: 3px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             margin: 0.3rem 0.3rem 0.3rem 0;
+            border: 1px solid rgba(102, 252, 241, 0.3);
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.9);
-            color: #fff;
+            background: var(--obsidian-black);
+            color: var(--polished-platinum);
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            border-top: 3px solid #667eea;
+            border-top: 2px solid var(--electric-aqua);
+        }
+
+        footer a {
+            color: var(--electric-aqua);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
         }
 
         .highlight {
-            color: #764ba2;
-            font-weight: 600;
+            color: var(--electric-aqua);
+            font-weight: 700;
+        }
+
+        /* Glow effect for interactive elements */
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(102, 252, 241, 0.8);
+            }
+        }
+
+        h1 {
+            animation: glow 3s ease-in-out infinite;
         }
 
         @media (max-width: 768px) {
@@ -282,7 +369,7 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 2rem; color: #667eea;">Technical Skills</h3>
+            <h3 style="margin-top: 2rem; color: var(--electric-aqua);">Technical Skills</h3>
             <div class="skills">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">TypeScript/JavaScript</span>
@@ -436,7 +523,7 @@
         <!-- Connect Section -->
         <section id="connect">
             <h2>Let's Connect</h2>
-            <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+            <p style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--polished-platinum);">
                 I'm always interested in collaborating on innovative projects, discussing technology trends, or exploring new opportunities in AI and software engineering.
             </p>
             <div class="skills" style="justify-content: center;">
@@ -454,8 +541,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Bagaskoro Saputro. All rights reserved. | <a href="https://github.com/bagaswap111" target="_blank" style="color: #667eea; text-decoration: none;">GitHub</a> | 
-        <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" style="color: #667eea; text-decoration: none;">LinkedIn</a></p>
+        <p>&copy; 2026 Bagaskoro Saputro. All rights reserved. | <a href="https://github.com/bagaswap111" target="_blank">GitHub</a> | 
+        <a href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank">LinkedIn</a></p>
     </footer>
 </body>
 </html>
