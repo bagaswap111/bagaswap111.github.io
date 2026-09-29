@@ -238,13 +238,10 @@
             justify-content: center;
         }
 
-        .avatar-wrap::before {
-            content: "BS";
-            font-size: clamp(4rem, 7vw, 6rem);
-            font-weight: 700;
-            letter-spacing: -0.08em;
-            color: var(--frosted-gold);
-            opacity: 0.9;
+        .avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .mono-box {
@@ -589,7 +586,9 @@
                         <span><span class="profile-badge"></span>Profile</span>
                         <span>Available</span>
                     </div>
-                    <div class="avatar-wrap" aria-label="Bagaskoro Saputro initials"></div>
+                    <div class="avatar-wrap" aria-label="Bagaskoro Saputro profile photo">
+                        <img src="https://avatars.githubusercontent.com/u/81802233?v=4" alt="Bagaskoro Saputro" />
+                    </div>
                     <div class="mono-box">
                         <div>role: software_engineer</div>
                         <div>focus: ai_systems / full_stack / research</div>
@@ -610,10 +609,10 @@
                 <div class="split">
                     <div class="card about-copy">
                         <p>
-                            I’m Bagaskoro Saputro, a software engineer and AI researcher with a strong interest in building meaningful digital products that combine technical depth with practical impact.
+                            I'm Bagaskoro Saputro, a software engineer and AI researcher with a strong interest in building meaningful digital products that combine technical depth with practical impact.
                         </p>
                         <p>
-                            My background spans machine learning, full-stack development, IoT, cloud architecture, and research-driven experimentation. I enjoy solving complex problems across business, product, and systems layers — especially where software can improve real people’s workflows and experiences.
+                            My background spans machine learning, full-stack development, IoT, cloud architecture, and research-driven experimentation. I enjoy solving complex problems across business, product, and systems layers — especially where software can improve real people's workflows and experiences.
                         </p>
                     </div>
 
@@ -744,8 +743,8 @@
             <div class="container">
                 <div class="cta-box">
                     <div>
-                        <h3>Let’s build something meaningful.</h3>
-                        <p>I’m open to collaborations, product work, research projects, and software opportunities where thoughtful engineering can create measurable impact.</p>
+                        <h3>Let's build something meaningful.</h3>
+                        <p>I'm open to collaborations, product work, research projects, and software opportunities where thoughtful engineering can create measurable impact.</p>
                     </div>
                     <div class="cta-row" style="margin:0;">
                         <a class="btn btn-primary" href="https://www.linkedin.com/in/bagaskoro-saputro-698715154/" target="_blank" rel="noreferrer">Connect</a>
